@@ -1,0 +1,20 @@
+<header class="header">
+  <div class="logo">🌤️</div>
+  <h1 class="title">Weather Dashboard</h1>
+</header>
+<div class="search-bar">
+  <input
+    type="text"
+    [formControl]="cityControl"
+    placeholder="Enter city name..."
+    class="search-input"
+  />
+</div>
+<div *ngIf="weatherData" class="weather-container">
+  <h2>◆ Weather Display</h2>
+  <p><strong>City name:</strong> {{ cityDisplayName }}</p>
+  <p>{{getWeatherIconOrText(weatherData.current_weather.weathercode, 'icon')}}</p>
+  <p><strong>Temperature:</strong> {{ weatherData.current_weather.temperature }}°C</p>
+  <p><strong>Weather condition:</strong> {{getWeatherIconOrText(weatherData.current_weather.weathercode, 'text')}}</p>
+  <p><strong>Wind speed:</strong> {{ weatherData.current_weather.windspeed }} km/h</p>
+</div>
